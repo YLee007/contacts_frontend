@@ -15,6 +15,8 @@ export interface Contact {
   company?: string; // 添加公司字段
   tags?: string[]; // 添加 tags 属性
   isFavorite: boolean; // Add isFavorite field
+  avatar?: string; // Add avatar field
+  notes?: string; // Add notes field
 }
 
 export interface ContactCreate {
@@ -25,6 +27,7 @@ export interface ContactCreate {
   company?: string; // 添加公司字段
   tags?: string[]; // 添加 tags 属性
   isFavorite?: boolean; // Add isFavorite field
+  notes?: string; // Add notes field
 }
 
 export interface ContactUpdate {
@@ -35,6 +38,7 @@ export interface ContactUpdate {
   company?: string; // 添加公司字段
   tags?: string[]; // 添加 tags 属性
   isFavorite?: boolean; // Add isFavorite field
+  notes?: string; // Add notes field
 }
 
 /**

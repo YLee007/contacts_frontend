@@ -19,7 +19,6 @@ import {
   Space,
   message,
   Select, // 确保导入 Select
-  Tag,
 } from 'antd';
 import {
   UserOutlined,
@@ -28,17 +27,15 @@ import {
   EnvironmentOutlined,
   BankOutlined,
   FileTextOutlined,
-  PlusOutlined,
   SaveOutlined,
   CloseOutlined,
 } from '@ant-design/icons';
 import type { Contact, ContactCreate, ContactUpdate } from '../types/contact';
-import { validatePhone, validateEmail, getValidationMessage } from '@/utils/validation';
+import { validatePhone, validateEmail } from '@/utils/validation';
 import { contactApi } from '../services/contactApi'; // 导入 contactApi
 import './ContactForm.css';
 
 const { TextArea } = Input;
-const { Option } = Select;
 
 interface ContactFormProps {
   /*编辑模式的联系人数据 */
@@ -212,7 +209,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               if (isEditMode && contact?.phone === value) { return Promise.resolve(); }
 
               // 异步验证手机号唯一性，并添加防抖
-              const timer = setTimeout(() => {}, 500); // 模拟防抖延迟
               await new Promise(resolve => setTimeout(resolve, 500)); // 实际的防抖延迟
 
               try {
@@ -332,22 +328,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       </Form.Item>
     </div>
   );
-
-  /**
-   * 渲染步骤内容
-   */
-  const renderStepContent = () => {
-    switch (currentStep) {
-      case 0:
-        return renderStepOne();
-      case 1:
-        return renderStepTwo();
-      case 2:
-        return renderStepThree();
-      default:
-        return null;
-    }
-  };
 
   /**
    * 渲染简化表单（不使用步骤）

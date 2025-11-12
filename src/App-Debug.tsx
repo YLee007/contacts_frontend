@@ -3,8 +3,8 @@
  * 逐步启用组件来定位问题
  */
 
-import React, { useState } from 'react';
-import { ConfigProvider, Modal, message, Button, Card } from 'antd';
+import React from 'react';
+import { ConfigProvider, message, Button, Card } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 
 // 步骤 1：测试基础导入

@@ -75,32 +75,62 @@ axiosInstance.interceptors.response.use(
 
 export const contactApi = {
   getContacts: async (params?: ContactQueryParams): Promise<ApiResponse<ContactListResponse>> => {
-    const response = await axiosInstance.get('/contacts', { params });
-    return response.data;
+    try {
+      const response = await axiosInstance.get('/contacts', { params });
+      return response.data;
+    } catch (error: any) {
+      console.error('获取联系人失败:', error);
+      throw new Error(error.response?.data?.message || '获取联系人失败');
+    }
   },
 
   getContactById: async (id: string): Promise<ApiResponse<Contact>> => {
-    const response = await axiosInstance.get(`/contacts/${id}`);
-    return response.data;
+    try {
+      const response = await axiosInstance.get(`/contacts/${id}`);
+      return response.data;
+    } catch (error: any) {
+      console.error('获取单个联系人失败:', error);
+      throw new Error(error.response?.data?.message || '获取单个联系人失败');
+    }
   },
 
   createContact: async (contact: ContactCreate): Promise<ApiResponse<Contact>> => {
-    const response = await axiosInstance.post('/contacts', contact);
-    return response.data;
+    try {
+      const response = await axiosInstance.post('/contacts', contact);
+      return response.data;
+    } catch (error: any) {
+      console.error('创建联系人失败:', error);
+      throw new Error(error.response?.data?.message || '创建联系人失败');
+    }
   },
 
   updateContact: async (id: string, contact: ContactUpdate): Promise<ApiResponse<Contact>> => {
-    const response = await axiosInstance.put(`/contacts/${id}`, contact);
-    return response.data;
+    try {
+      const response = await axiosInstance.put(`/contacts/${id}`, contact);
+      return response.data;
+    } catch (error: any) {
+      console.error('更新联系人失败:', error);
+      throw new Error(error.response?.data?.message || '更新联系人失败');
+    }
   },
 
   deleteContact: async (id: string): Promise<ApiResponse<null>> => {
-    const response = await axiosInstance.delete(`/contacts/${id}`);
-    return response.data;
+    try {
+      const response = await axiosInstance.delete(`/contacts/${id}`);
+      return response.data;
+    } catch (error: any) {
+      console.error('删除联系人失败:', error);
+      throw new Error(error.response?.data?.message || '删除联系人失败');
+    }
   },
 
   toggleFavoriteStatus: async (id: string): Promise<ApiResponse<Contact>> => {
-    const response = await axiosInstance.patch(`/contacts/${id}/favorite`);
-    return response.data;
+    try {
+      const response = await axiosInstance.patch(`/contacts/${id}/favorite`);
+      return response.data;
+    } catch (error: any) {
+      console.error('切换收藏状态失败:', error);
+      throw new Error(error.response?.data?.message || '切换收藏状态失败');
+    }
   },
 };

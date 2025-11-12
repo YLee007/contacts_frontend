@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { User, LoginCredentials, RegisterCredentials, AuthResponse } from '../types/user';
+import { User, LoginCredentials, RegisterCredentials } from '../types/user';
 import { authApi } from '../services/authApi';
 import { message } from 'antd'; // 引入 Ant Design 的 message 组件
 

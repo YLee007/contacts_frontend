@@ -4,7 +4,7 @@
  */
 
 import { create } from 'zustand';
-import { Contact, ContactCreate, ContactUpdate, ContactQueryParams, ContactListResponse } from '../types/contact';
+import { Contact, ContactCreate, ContactUpdate, ContactQueryParams } from '../types/contact';
 import { contactApi } from '../services/contactApi';
 
 interface ContactState {

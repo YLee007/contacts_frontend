@@ -10,13 +10,12 @@ import {
   Layout,
   SearchBar,
   ContactList,
-  ContactCard,
   ContactForm,
   LoginForm, // 导入 LoginForm
 } from './components';
 import { useContactStore } from './store/contactStore';
 import { useAuthStore } from './store/authStore'; // 导入 useAuthStore
-import type { Contact, ContactCreate } from './types/contact';
+import type { Contact, ContactCreate, ContactUpdate } from './types/contact';
 import './App.css';
 
 const App: React.FC = () => {
@@ -43,6 +42,7 @@ const App: React.FC = () => {
     selectedTags, // 导入 selectedTags
     toggleFavorite,
     filterByFavorite, // Import filterByFavorite
+    setFilterByFavorite, // Import setFilterByFavorite
   } = useContactStore();
 
   const { isLoggedIn, user, loadSession, logout } = useAuthStore(); // 引入认证状态和 logout action
@@ -107,16 +107,16 @@ const App: React.FC = () => {
   /**
    * 处理表单提交
    */
-  const handleFormSubmit = async (data: ContactCreate) => {
+  const handleFormSubmit = async (data: ContactCreate | ContactUpdate) => {
     // 重置之前的错误信息
     // useContactStore.setState({ error: null }); // 这步由 create/updateContact 内部处理，无需在这里再次重置
     try {
       if (editingContact) {
         // 更新联系人
-        await updateContact(editingContact.id, data);
+        await updateContact(editingContact.id, data as ContactUpdate);
       } else {
         // 创建新联系人
-        await createContact(data);
+        await createContact(data as ContactCreate);
       }
 
       if (!error) { // 检查 store 中的 error 状态
@@ -148,7 +148,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <ConfigProvider locale={zhCN} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <ConfigProvider locale={zhCN}>
+      <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       {!isLoggedIn ? (
         <div className="login-page-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
           <LoginForm onSuccess={() => { /* 登录成功后无需额外操作，因为 isLoggedIn 会自动更新 */ }} />
@@ -189,8 +190,8 @@ const App: React.FC = () => {
               onDelete={handleDeleteContact}
               onToggleFavorite={toggleFavorite}
               onSortChange={(newSortBy, newOrder) => {
-                setSortBy(newSortBy);
-                setSortOrder(newOrder);
+                setSortBy(newSortBy as 'name' | 'createdAt' | 'updatedAt');
+                setSortOrder(newOrder as 'asc' | 'desc');
               }}
               onPageChange={(page) => {
                 setPaginationPage(page);
@@ -216,6 +217,7 @@ const App: React.FC = () => {
           </Modal>
         </Layout>
       )}
+      </div>
     </ConfigProvider>
   );
 };

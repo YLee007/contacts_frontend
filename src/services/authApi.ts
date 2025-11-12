@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { LoginCredentials, RegisterCredentials, AuthResponse, User, ApiResponse } from '../types/user';
+import { LoginCredentials, RegisterCredentials, AuthResponse, User } from '../types/user';
+import { ApiResponse } from '../types'; // 从 index.ts 或其他公共类型文件导入 ApiResponse
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
 

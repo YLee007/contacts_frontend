@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Typography, Space, message } from 'antd';
+import { Form, Input, Button, Typography, Space } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { useAuthStore } from '../store/authStore';
 import { LoginCredentials, RegisterCredentials } from '../types/user';
@@ -14,7 +14,7 @@ interface LoginFormProps {
 export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
   const [form] = Form.useForm();
   const [isRegisterMode, setIsRegisterMode] = useState(false);
-  const { login, register, loading, error, clearError } = useAuthStore();
+  const { login, register, loading, clearError } = useAuthStore();
 
   const handleSubmit = async () => {
     try {

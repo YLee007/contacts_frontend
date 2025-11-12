@@ -28,7 +28,6 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
   TeamOutlined,
-  StarOutlined,
   SettingOutlined,
   LogoutOutlined,
   BellOutlined,

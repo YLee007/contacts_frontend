@@ -184,10 +184,12 @@ export const ContactCard: React.FC<ContactCardProps> = ({
                       onConfirm={handleDelete}
                       okText="确定"
                       cancelText="取消"
-                      onClick={(e) => e.stopPropagation()}
                     >
                       <Tooltip title="删除">
-                        <DeleteOutlined className="action-icon delete" />
+                        <DeleteOutlined
+                          className="action-icon delete"
+                          onClick={(e: React.MouseEvent) => e.stopPropagation()} // Stop propagation here
+                        />
                       </Tooltip>
                     </Popconfirm>
                   </>
