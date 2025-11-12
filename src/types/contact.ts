@@ -50,7 +50,7 @@ export interface ContactQueryParams {
   search?: string;
   sortBy?: 'name' | 'createdAt' | 'updatedAt';
   order?: 'asc' | 'desc';
-  tags?: string[];
+  tags?: string | string[]; // Allow string or string array for tags
   isFavorite?: boolean;
 }
 

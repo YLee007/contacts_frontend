@@ -42,7 +42,7 @@ axiosInstance.interceptors.response.use(
       // 可以根据不同的状态码进行不同的处理
       switch (error.response.status) {
         case 400:
-          alert('Bad Request: ' + (error.response.data.message || ''));
+          alert('Bad Request: ' + ((error.response.data as any)?.message || ''));
           break;
         case 401:
           alert('Unauthorized: 请重新登录。');
@@ -58,7 +58,7 @@ axiosInstance.interceptors.response.use(
           alert('Server Error: 服务器内部错误。');
           break;
         default:
-          alert('An unexpected error occurred: ' + (error.response.data.message || error.message));
+          alert('An unexpected error occurred: ' + ((error.response.data as any)?.message || error.message));
       }
     } else if (error.request) {
       // 请求已发出但没有收到响应
