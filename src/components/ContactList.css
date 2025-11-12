@@ -1,0 +1,139 @@
+/**
+ * ContactList 组件样式
+ */
+
+.contact-list {
+  width: 100%;
+  position: relative; /* 为绝对定位的子元素提供参考 */
+}
+
+/* 工具栏 */
+.list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.list-stats {
+  color: #595959;
+  font-size: 14px;
+}
+
+.stats-number {
+  color: #1890ff;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0 4px;
+}
+
+/* 列表内容 */
+.list-content {
+  min-height: 750px; /* 重新引入 min-height */
+  padding-bottom: 80px; /* 增加底部填充，为分页留出空间 */ 
+}
+
+/* 分页 */
+.list-pagination {
+  display: flex;
+  justify-content: center;
+  position: absolute; /* 绝对定位 */
+  bottom: 0; /* 贴合底部 */
+  left: 0;
+  right: 0;
+  height: 60px; /* 固定高度 */
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.03); /* 添加阴影，使其与内容分隔 */
+}
+
+/* 骨架屏 */
+.contact-card-skeleton {
+  height: 200px;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f0f0f0;
+}
+
+/* 空状态 */
+.ant-empty {
+  padding: 60px 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .list-toolbar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .list-toolbar > * {
+    width: 100%;
+  }
+
+  .list-stats {
+    text-align: center;
+  }
+
+  .list-pagination {
+    padding: 12px;
+  }
+
+  .list-pagination .ant-pagination {
+    font-size: 12px;
+  }
+
+  /* 移动端隐藏部分分页选项 */
+  .list-pagination .ant-pagination-options-quick-jumper {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .list-toolbar {
+    padding: 12px;
+  }
+
+  .list-content {
+    min-height: 300px;
+  }
+
+  /* 移动端简化分页 */
+  .list-pagination .ant-pagination-options {
+    display: none;
+  }
+}
+
+/* 动画效果 */
+.list-content > * {
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 加载状态 */
+.list-content .ant-spin-container {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

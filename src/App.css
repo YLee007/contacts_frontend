@@ -1,0 +1,21 @@
+/**
+ * 主应用样式
+ */
+
+.app-container {
+  width: 100%;
+}
+
+.search-section {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .search-section {
+    margin-bottom: 16px;
+  }
+}
+

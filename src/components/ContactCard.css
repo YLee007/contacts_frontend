@@ -1,0 +1,310 @@
+/**
+ * ContactCard 组件样式
+ */
+
+.contact-card {
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: 180px; /* 固定高度 */
+  display: flex; /* 使用 flex 布局 */
+  flex-direction: column; /* 垂直排列 */
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card.hovered {
+  border-color: #1890ff;
+}
+
+/* 卡片内容 */
+.card-content {
+  position: relative;
+  flex-grow: 1; /* 占据剩余空间 */
+  overflow: hidden; /* 隐藏溢出内容 */
+}
+
+/* 头部区域 */
+.card-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-avatar {
+  flex-shrink: 0;
+  border: 2px solid #f0f0f0;
+  transition: border-color 0.3s ease;
+}
+
+.contact-card:hover .contact-avatar {
+  border-color: #1890ff;
+}
+
+/* 联系人信息 */
+.contact-info {
+  flex: 1;
+  min-width: 200px; /* 添加最小宽度 */
+}
+
+.contact-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.contact-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-icon {
+  font-size: 18px;
+  color: #8c8c8c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-icon:hover {
+  color: #faad14;
+  transform: scale(1.2);
+}
+
+.favorite-icon.active {
+  color: #faad14;
+}
+
+/* 详细信息 */
+.contact-details {
+  width: 100%;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #595959;
+  font-size: 14px;
+  height: 20px; /* 固定每行高度 */
+}
+
+.detail-icon {
+  color: #8c8c8c;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.detail-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action-icon-inline {
+  color: #8c8c8c;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover .action-icon-inline {
+  opacity: 1;
+  color: #1890ff;
+}
+
+/* 高亮文本 */
+.highlight-text {
+  background-color: #fffbe6;
+  color: #faad14;
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* 标签 */
+.card-tags {
+  margin-top: 8px; /* 调整标签与上方内容的间距 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* 操作按钮 */
+.action-icon {
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 4px;
+}
+
+.action-icon.edit {
+  color: #1890ff;
+}
+
+.action-icon.edit:hover {
+  color: #40a9ff;
+  transform: scale(1.2);
+}
+
+.action-icon.delete {
+  color: #ff4d4f;
+}
+
+.action-icon.delete:hover {
+  color: #ff7875;
+  transform: scale(1.2);
+}
+
+/* 紧凑模式 */
+.contact-card.compact {
+  padding: 12px;
+}
+
+.contact-card.compact .card-header {
+  margin-bottom: 8px;
+}
+
+.contact-card.compact .contact-name {
+  font-size: 16px;
+}
+
+.contact-card.compact .detail-item {
+  font-size: 13px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .contact-card {
+    border-radius: 8px;
+  }
+
+  .card-header {
+    gap: 12px;
+  }
+
+  .contact-avatar {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .contact-name {
+    font-size: 16px;
+  }
+
+  .detail-item {
+    font-size: 13px;
+  }
+
+  .action-icon-inline {
+    opacity: 1; /* 移动端始终显示内联操作图标 */
+  }
+}
+
+/* 夜间模式样式 (仅限卡片) */
+body.dark-theme .contact-card {
+  background-color: #262626;
+  border-color: #434343;
+  color: #f0f0f0;
+}
+
+body.dark-theme .contact-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .contact-card.hovered {
+  border-color: #1677ff;
+}
+
+body.dark-theme .contact-avatar {
+  border-color: #434343;
+}
+
+body.dark-theme .contact-card:hover .contact-avatar {
+  border-color: #1677ff;
+}
+
+body.dark-theme .contact-name {
+  color: #f0f0f0;
+}
+
+body.dark-theme .favorite-icon {
+  color: #bfbfbf;
+}
+
+body.dark-theme .favorite-icon:hover,
+body.dark-theme .favorite-icon.active {
+  color: #ffc53d;
+}
+
+body.dark-theme .detail-item {
+  color: #d9d9d9;
+}
+
+body.dark-theme .detail-icon {
+  color: #bfbfbf;
+}
+
+body.dark-theme .action-icon-inline {
+  color: #bfbfbf; 
+}
+
+body.dark-theme .detail-item:hover .action-icon-inline {
+  color: #1677ff;
+}
+
+body.dark-theme .highlight-text {
+  background-color: #4a4a4a;
+  color: #ffc53d;
+}
+
+body.dark-theme .action-icon.edit {
+  color: #1677ff;
+}
+
+body.dark-theme .action-icon.edit:hover {
+  color: #4096ff;
+}
+
+body.dark-theme .action-icon.delete {
+  color: #ff4d4f;
+}
+
+body.dark-theme .action-icon.delete:hover {
+  color: #ff7875;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-card {
+  animation: fadeIn 0.3s ease;
+}
+
+/* 加载骨架屏 */
+.contact-card-skeleton {
+  border-radius: 12px;
+  padding: 16px;
+}
+

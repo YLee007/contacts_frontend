@@ -1,0 +1,265 @@
+/**
+ * Layout 组件样式
+ */
+
+.app-layout {
+  min-height: 100vh;
+}
+
+/* 侧边栏 */
+.layout-sider {
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.sider-logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-icon {
+  font-size: 24px;
+  color: #1890ff;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* 头部导航栏 */
+.layout-header {
+  background: #fff;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  z-index: 9;
+  height: 64px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* 折叠按钮 */
+.trigger-btn {
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.trigger-btn:hover {
+  background: #f0f0f0;
+  color: #1890ff;
+}
+
+/* 面包屑 */
+.breadcrumb {
+  font-size: 14px;
+}
+
+/* 添加按钮 */
+.add-btn {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(24, 144, 255, 0.3);
+}
+
+.add-btn:hover {
+  box-shadow: 0 4px 8px rgba(24, 144, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+/* 图标按钮 */
+.icon-btn {
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: #f0f0f0;
+  color: #1890ff;
+}
+
+/* 用户信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.user-info:hover {
+  background: #f0f0f0;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #262626;
+}
+
+/* 内容区域 */
+.layout-content {
+  margin: 24px;
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: calc(100vh - 112px);
+  border-radius: 8px;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 移动端抽屉 */
+.mobile-drawer .ant-drawer-body {
+  padding: 0;
+}
+
+.mobile-drawer .ant-menu {
+  border: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .layout-header {
+    padding: 0 16px;
+  }
+
+  .header-left {
+    gap: 12px;
+  }
+
+  .breadcrumb {
+    display: none;
+  }
+
+  .layout-content {
+    margin: 16px;
+    padding: 16px;
+    min-height: calc(100vh - 96px);
+  }
+
+  .add-btn {
+    padding: 0 12px;
+  }
+
+  .user-name {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .layout-header {
+    padding: 0 12px;
+  }
+
+  .layout-content {
+    margin: 12px;
+    padding: 12px;
+    border-radius: 4px;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+/* 菜单样式优化 */
+.layout-sider .ant-menu-dark {
+  background: transparent;
+}
+
+.layout-sider .ant-menu-item {
+  border-radius: 8px;
+  margin: 4px 8px;
+  width: calc(100% - 16px);
+}
+
+.layout-sider .ant-menu-item-selected {
+  background: rgba(24, 144, 255, 0.2) !important;
+}
+
+.layout-sider .ant-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 动画效果 */
+.layout-sider,
+.layout-header,
+.layout-content {
+  transition: all 0.3s ease;
+}
+
+/* 滚动条样式 */
+.layout-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.layout-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.layout-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.layout-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+  .layout-header {
+    background: #141414;
+    border-bottom: 1px solid #303030;
+  }
+
+  .layout-content {
+    background: #000;
+  }
+
+  .trigger-btn:hover,
+  .icon-btn:hover,
+  .user-info:hover {
+    background: #262626;
+  }
+
+  .user-name {
+    color: #fff;
+  }
+}
+
