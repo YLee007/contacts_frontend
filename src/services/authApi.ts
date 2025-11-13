@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { LoginCredentials, RegisterCredentials, AuthResponse, User } from '../types/user';
 import { ApiResponse } from '../types'; // 从 index.ts 或其他公共类型文件导入 ApiResponse
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://121.43.230.249/:3000/api';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
